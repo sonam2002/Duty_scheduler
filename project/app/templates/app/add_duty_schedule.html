@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Duty Schedule</title>
+    <style>
+        div{
+          width:500px;
+          height: 300px;
+          border: 3px solid rgb(131, 223, 223);
+          padding-top: 30px;
+        }
+        label{
+            font-size: 18px;
+        }
+        input{
+            width:150px;
+            height: 30px;
+        }
+        button{
+            width: 25%;
+            height: 30px;
+            background-color: rgb(87, 186, 186);
+            border: 1px solid rgb(87, 186, 186);
+            font-size: 15px;
+        }
+        form{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Add Schedule</h1>
+    <center><div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} <br>
+        <button type="submit">Add Schedule</button>
+    </form>
+    </div>
+</center>
+</body>
+</html>

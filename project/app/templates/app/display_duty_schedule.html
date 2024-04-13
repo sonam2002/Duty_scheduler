@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Schedule</title>
+   <style>
+    table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ddd;
+            font-family: Arial, sans-serif;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+
+        button {
+            width: 12%;
+            height: 40px;
+            background-color: #4CAF50;
+            margin-top: 20px;
+            border: 1px solid #4CAF50;
+            border-radius: 10px;
+        }
+
+   </style>
+</head>
+<body>
+      <center><h1>Display Schedule</h1></center>
+        <table border="1px solid black">
+            <tr>
+                <th>Doctor Name</th>
+                <th>Day</th>
+                <th>Shift</th>
+                <th>Update Schedule</th>
+            </tr>
+            {% for data in  duty_schedule %}
+            <tr>
+               <td>{{data.doctor_name}}</td>
+               <td>{{data.day}}</td>
+               <td>{{data.shift}}</td>
+               <td><a href="{% url 'update_schedule' pk=data.id %}">update</a></td>
+            
+               
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
